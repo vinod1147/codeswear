@@ -6,7 +6,7 @@ const Mugs = () => {
         <div>
             <section className="text-gray-600 body-font">
                 <div className="container px-5 py-24 mx-auto">
-                    <div className="flex flex-wrap -m-4">
+                    <div className="flex flex-wrap -m-4 justify-center">
                         <Link href={'/product/wear-the-code'}><div className="lg:w-1/5 md:w-1/2 p-4 w-full cursor-pointer shadow-lg m-5">
                             <a className="block relative rounded overflow-hidden">
                                 <img alt="ecommerce" className="m-auto md:mx-0 block" src="https://m.media-amazon.com/images/I/81u-Jf4cm1L._SL1500_.jpg" />
