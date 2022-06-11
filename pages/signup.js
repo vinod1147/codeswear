@@ -41,8 +41,8 @@ const Signup = () => {
         setName('')
         setPassword('')
         toast.success('Your account has been created!!!', {
-            position: "bottom-left",
-            autoClose: 5000,
+            position: "top-left",
+            autoClose: 1000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -53,8 +53,7 @@ const Signup = () => {
 
     return (
         <div>
-            <ToastContainer
-                position="top-left" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
+            <ToastContainer position="top-left" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
             <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-md w-full space-y-8">
                     <div>
