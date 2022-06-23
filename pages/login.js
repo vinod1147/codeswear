@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,6 +9,12 @@ const Login = () => {
     const router = useRouter()
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+            router.push('/')
+        }
+    }, []);
 
     const handleChange = (e) => {
         if (e.target.name == 'email') {
@@ -39,6 +45,7 @@ const Login = () => {
         setPassword('')
 
         if (response.success) {
+            localStorage.setItem('token', response.token)
             toast.success('You are successfully logged in!!!', {
                 position: "top-left",
                 autoClose: 1000,
@@ -93,10 +100,6 @@ const Login = () => {
                     </div>
 
                     <div className="flex items-center justify-between">
-                        <div className="flex items-center">
-                            <input id="remember-me" name="remember-me" type="checkbox" className="h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300 rounded" />
-                            <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900"> Remember me </label>
-                        </div>
 
                         <div className="text-sm">
                             <Link href={'/forgot'}>
