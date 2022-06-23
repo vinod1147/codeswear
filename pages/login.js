@@ -7,8 +7,8 @@ import { useRouter } from 'next/router';
 
 const Login = () => {
     const router = useRouter()
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
@@ -30,7 +30,7 @@ const Login = () => {
 
         const data = { email, password }
 
-        let res = await fetch('http://localhost:3000/api/login', {
+        let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/login`, {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ const Login = () => {
             });
 
             setTimeout(() => {
-                router.push('http://localhost:3000')
+                router.push(process.env.NEXT_PUBLIC_HOST)
             }, 1000);
 
         } else {
